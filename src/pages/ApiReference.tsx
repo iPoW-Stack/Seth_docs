@@ -196,6 +196,51 @@ export function ApiReference({ lang }: { lang: 'en' | 'zh' }) {
         </motion.div>
       </div>
 
+      <h2 className="text-2xl font-bold mt-12 mb-6 text-[var(--color-text-main)] border-b border-[var(--color-border)] pb-2">
+        {t.sdkTitle}
+      </h2>
+
+      <div className="bg-[var(--color-bg-card)] p-6 rounded-xl border border-[var(--color-border)] mb-12 shadow-sm">
+        <p className="text-[var(--color-text-muted)] mb-6">{t.sdkDesc}</p>
+
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">
+              {t.sdkDepsTitle}
+            </h3>
+            <ul className="space-y-2">
+              {t.sdkDeps.map((dep: string) => (
+                <li key={dep} className="flex items-start gap-2">
+                  <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[var(--color-brand)] shrink-0"></span>
+                  <span className="text-sm text-[var(--color-text-muted)]">{dep}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">
+              {t.sdkStepsTitle}
+            </h3>
+            <ul className="space-y-2">
+              {t.sdkSteps.map((step: string) => (
+                <li key={step} className="flex items-start gap-2">
+                  <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-purple)] shrink-0"></span>
+                  <span className="text-sm text-[var(--color-text-muted)]">{step}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-3">
+              {t.sdkExampleTitle}
+            </h3>
+            <CodeBlock code={t.sdkExampleCode} language="python" />
+          </div>
+        </div>
+      </div>
+
       {/* Floating Action Button */}
       <motion.button 
         whileHover={{ scale: 1.05 }}

@@ -214,6 +214,23 @@ export const i18n = {
         'EVM tooling: JSON-RPC methods and semantics match Ethereum (eth_sendRawTransaction, eth_call, eth_estimateGas, etc).',
         'The gateway endpoints below currently accept urlencoded POST; use these when interacting with the Seth HTTP gateway.'
       ],
+      sdkTitle: 'Developer SDK (Python)',
+      sdkDesc: 'A reference client in SethPub/clipy/cli.py demonstrates how to build, sign, and submit transactions via the HTTP gateway.',
+      sdkDepsTitle: 'Dependencies',
+      sdkDeps: [
+        'requests',
+        'ecdsa',
+        'pycryptodome (Crypto.Hash.keccak)'
+      ],
+      sdkStepsTitle: 'Workflow',
+      sdkSteps: [
+        'Derive public key and address from a secp256k1 private key (Ethereum-style: keccak(pubkey[1:]) last 20 bytes).',
+        'Query nonce via /query_account; if missing, treat as 0; next nonce = current + 1.',
+        'Compute hash from packed fields (nonce, pubkey, to, amount, gas_limit, gas_price, step, plus optional contract/input).',
+        'Sign hash with secp256k1 and call /transaction with sign_r, sign_s, sign_v (retry v=1 if needed).'
+      ],
+      sdkExampleTitle: 'Minimal Example',
+      sdkExampleCode: 'client = SethClient(host, port)\nclient.send_transaction_auto(private_key_hex=MY_PRIVATE_KEY, to_hex=TO_ADDR, amount=5000)',
       endpoints: {
         transaction: {
           desc: 'Send a transaction to the Seth network.',
@@ -458,6 +475,23 @@ export const i18n = {
         'EVM 工具链：JSON-RPC 方法与语义保持以太坊一致（eth_sendRawTransaction、eth_call、eth_estimateGas 等）。',
         '当前 HTTP 网关仍支持 urlencoded POST 的旧式接口，请按下方参数提交。'
       ],
+      sdkTitle: '开发者 SDK（Python）',
+      sdkDesc: 'SethPub/clipy/cli.py 提供参考客户端，展示如何构造、签名并通过 HTTP 网关提交交易。',
+      sdkDepsTitle: '依赖',
+      sdkDeps: [
+        'requests',
+        'ecdsa',
+        'pycryptodome (Crypto.Hash.keccak)'
+      ],
+      sdkStepsTitle: '流程',
+      sdkSteps: [
+        '从 secp256k1 私钥推导公钥与地址（默认以太坊规则：keccak(pubkey[1:]) 取末 20 字节）。',
+        '通过 /query_account 获取 nonce；缺失则视为 0；next nonce = current + 1。',
+        '按字段打包计算哈希（nonce、pubkey、to、amount、gas_limit、gas_price、step，以及可选合约/输入）。',
+        '使用 secp256k1 签名哈希并调用 /transaction，提交 sign_r/sign_s/sign_v（必要时 v=1 重试）。'
+      ],
+      sdkExampleTitle: '最小示例',
+      sdkExampleCode: 'client = SethClient(host, port)\nclient.send_transaction_auto(private_key_hex=MY_PRIVATE_KEY, to_hex=TO_ADDR, amount=5000)',
       endpoints: {
         transaction: {
           desc: '发送交易到 Seth 网络。',
