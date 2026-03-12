@@ -40,6 +40,12 @@ export const i18n = {
       advanced1Desc: 'At the end of each epoch, the network globally analyzes the transaction graph, and intelligently migrates frequently interacting accounts to the same shard through the graph stream segmentation algorithm, converting a large number of cross-shard calls into low-latency intra-shard execution.',
       advanced2Title: 'Dual Confirmation Mechanism for Cross-shard Transactions:',
       advanced2Desc: 'When a cross-shard transaction must be executed, the source shard locks the state and generates a proof, relaying it to the target shard; after the target shard executes, it returns a confirmation receipt, and the source shard finally unlocks and updates the state, ensuring atomicity.',
+      devFocusTitle: 'Developer Essentials',
+      devFocusItems: [
+        { title: 'EVM-Compatible Tooling', desc: 'Reuse ethers.js, web3.js, viem, Hardhat, Foundry and standard JSON-RPC calls.' },
+        { title: 'SDK Reference (Python)', desc: 'SethPub/clipy/cli.py shows nonce query, hashing, signing, and /transaction submission.' },
+        { title: 'Wallet Integration', desc: 'Use standard Ethereum-style accounts; MetaMask works by adding the Seth RPC.' }
+      ],
       suggestEdits: 'Suggest Edits'
     },
     coreConcepts: {
@@ -134,7 +140,14 @@ export const i18n = {
       step3Desc: 'Purchase 600 SETH from Pool B and enroll your Agent in the 12-week program (BSc 4w + MSc 3w + PhD 5w). Each week generates SKILL.md updates in the workspace. Mining is locked during training.',
       step4Title: 'Step 4: Activate Mining & Arbitrage',
       step4Subtitle: 'Earn Rewards',
-      step4Desc: 'After graduation, your Agent unlocks L1 mining. You can also deploy your Agent to Pool A (Solana) to perform automated DIRM arbitrage when sUSDC deviates from $1.'
+      step4Desc: 'After graduation, your Agent unlocks L1 mining. You can also deploy your Agent to Pool A (Solana) to perform automated DIRM arbitrage when sUSDC deviates from $1.',
+      devFastTitle: 'Developer Fast Path',
+      devFastDesc: 'Already building on Ethereum? You can integrate quickly:',
+      devFastPoints: [
+        'Use your existing wallet stack (MetaMask, ethers.js, viem).',
+        'JSON-RPC methods mirror Ethereum; gateway also supports urlencoded /transaction and /query_account.',
+        'Reference SDK: SethPub/clipy/cli.py (Python) for nonce + signing + submit.'
+      ]
     },
     build: {
       title: 'Build & Agent Guide',
@@ -301,6 +314,12 @@ export const i18n = {
       advanced1Desc: '在每个纪元结束时，网络全局分析交易图谱，通过图流分割算法将频繁交互的账户智能地迁移到同一个分片中，将大量跨片调用转化为低延迟的片内执行。',
       advanced2Title: '跨片交易的双重确认机制:',
       advanced2Desc: '当必须执行跨片交易时，源分片锁定状态并生成证明，中继给目标分片；目标分片执行后回传确认收据，源分片最终解锁并更新状态，保障原子性。',
+      devFocusTitle: '开发者要点',
+      devFocusItems: [
+        { title: 'EVM 兼容工具链', desc: '可复用 ethers.js、web3.js、viem、Hardhat、Foundry 等与标准 JSON-RPC。' },
+        { title: 'SDK 参考（Python）', desc: 'SethPub/clipy/cli.py 展示了 nonce 查询、哈希、签名与 /transaction 提交流程。' },
+        { title: '钱包集成', desc: '采用以太坊风格账户；MetaMask 通过添加 Seth RPC 即可使用。' }
+      ],
       suggestEdits: '提出修改建议'
     },
     coreConcepts: {
@@ -395,7 +414,14 @@ export const i18n = {
       step3Desc: '从 B 池购买 600 SETH 并为您的 Agent 报名 12 周课程（BSc 4 周 + MSc 3 周 + PhD 5 周）。每周生成 SKILL.md 更新并写入工作区。训练期内不允许挖矿。',
       step4Title: '第 4 步：激活挖矿与套利',
       step4Subtitle: '赚取奖励',
-      step4Desc: '毕业后，您的 Agent 将解锁 L1 挖矿权限。您还可以将 Agent 部署到 A 池 (Solana) 执行自动化 DIRM 套利，当 sUSDC 偏离 1 美元时进行交易。'
+      step4Desc: '毕业后，您的 Agent 将解锁 L1 挖矿权限。您还可以将 Agent 部署到 A 池 (Solana) 执行自动化 DIRM 套利，当 sUSDC 偏离 1 美元时进行交易。',
+      devFastTitle: '开发者快速接入',
+      devFastDesc: '如果你已在以太坊生态开发，可快速复用：',
+      devFastPoints: [
+        '沿用现有钱包栈（MetaMask、ethers.js、viem）。',
+        'JSON-RPC 方法与以太坊一致；网关支持 urlencoded /transaction 和 /query_account。',
+        '参考 SDK：SethPub/clipy/cli.py（Python）包含 nonce、签名与提交流程。'
+      ]
     },
     build: {
       title: '开发与 Agent 指南',

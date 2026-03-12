@@ -1,4 +1,4 @@
-import { Home, ChevronRight, Edit3, Layers, Zap } from 'lucide-react';
+import { Home, ChevronRight, Edit3, Layers, Zap, Code, Terminal, Wallet } from 'lucide-react';
 import { motion } from 'motion/react';
 import { i18n } from '../i18n';
 
@@ -28,6 +28,31 @@ export function Welcome({ lang }: { lang: 'en' | 'zh' }) {
         <p>{t.p1}</p>
         <p>{t.p2}</p>
         <p>{t.p3}</p>
+      </div>
+
+      <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-main)] border-b border-[var(--color-border)] pb-2">
+        {t.devFocusTitle}
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {t.devFocusItems.map((item, idx) => {
+          const icon = idx === 0 ? <Code className="w-6 h-6 text-[var(--color-brand)]" /> :
+            idx === 1 ? <Terminal className="w-6 h-6 text-[var(--color-brand-purple)]" /> :
+            <Wallet className="w-6 h-6 text-[var(--color-brand)]" />;
+          return (
+            <motion.div
+              key={item.title}
+              whileHover={{ y: -4 }}
+              className="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] shadow-sm"
+            >
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-bg-main)] border border-[var(--color-border)] flex items-center justify-center mb-4">
+                {icon}
+              </div>
+              <h3 className="text-lg font-semibold text-[var(--color-text-main)] mb-2">{item.title}</h3>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">

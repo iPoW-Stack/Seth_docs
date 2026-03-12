@@ -87,6 +87,21 @@ export function GetStarted({ lang }: { lang: 'en' | 'zh' }) {
         ))}
       </div>
 
+      <div className="mt-12 bg-[var(--color-bg-card)] p-6 rounded-xl border border-[var(--color-border)] shadow-sm">
+        <h2 className="text-2xl font-bold mb-4 text-[var(--color-text-main)]">
+          {t.devFastTitle}
+        </h2>
+        <p className="text-[var(--color-text-muted)] mb-4">{t.devFastDesc}</p>
+        <ul className="space-y-3">
+          {t.devFastPoints.map((point: string) => (
+            <li key={point} className="flex items-start gap-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand)] mt-2 shrink-0"></div>
+              <span className="text-sm text-[var(--color-text-muted)]">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <motion.button 
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
