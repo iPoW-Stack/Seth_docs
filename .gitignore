@@ -7,3 +7,8 @@ coverage/
 *.pdf
 .env*
 !.env.example
+gcp_key
+gcp_key.pub
+ui-shots/
+nginx_dev.tmp
+Seth Logo2.png
